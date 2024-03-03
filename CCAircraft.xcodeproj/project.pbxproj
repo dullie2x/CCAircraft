@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A04E53712B9528430017617B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E53702B9528430017617B /* SplashView.swift */; };
 		A0DD361D2B93895F00D504D6 /* CCAircraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD361C2B93895F00D504D6 /* CCAircraftApp.swift */; };
-		A0DD361F2B93895F00D504D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD361E2B93895F00D504D6 /* ContentView.swift */; };
+		A0DD361F2B93895F00D504D6 /* OpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD361E2B93895F00D504D6 /* OpenView.swift */; };
 		A0DD36212B93897000D504D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DD36202B93897000D504D6 /* Assets.xcassets */; };
 		A0DD36242B93897000D504D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DD36232B93897000D504D6 /* Preview Assets.xcassets */; };
 		A0DD362E2B93897100D504D6 /* CCAircraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD362D2B93897100D504D6 /* CCAircraftTests.swift */; };
 		A0DD36382B93897100D504D6 /* CCAircraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36372B93897100D504D6 /* CCAircraftUITests.swift */; };
 		A0DD363A2B93897100D504D6 /* CCAircraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36392B93897100D504D6 /* CCAircraftUITestsLaunchTests.swift */; };
+		A0DD36482B93ABED00D504D6 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36472B93ABED00D504D6 /* Execution.swift */; };
+		A0DD364D2B94156400D504D6 /* CruiseMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD364C2B94156400D504D6 /* CruiseMain.swift */; };
+		A0DD364F2B94157300D504D6 /* EngagementMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD364E2B94157300D504D6 /* EngagementMain.swift */; };
+		A0DD36512B94157D00D504D6 /* EgressMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36502B94157D00D504D6 /* EgressMain.swift */; };
+		A0DD36532B94159B00D504D6 /* Loose.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36522B94159B00D504D6 /* Loose.swift */; };
+		A0DD36552B9415A900D504D6 /* Trail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36542B9415A900D504D6 /* Trail.swift */; };
+		A0DD36572B9415BD00D504D6 /* Echelon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36562B9415BD00D504D6 /* Echelon.swift */; };
+		A0DD36592B94161F00D504D6 /* Banzai.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD36582B94161F00D504D6 /* Banzai.swift */; };
+		A0DD365B2B94162B00D504D6 /* Blow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD365A2B94162B00D504D6 /* Blow.swift */; };
+		A0DD365D2B94163400D504D6 /* Skate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD365C2B94163400D504D6 /* Skate.swift */; };
+		A0DD365F2B94163D00D504D6 /* Lag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD365E2B94163D00D504D6 /* Lag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A04E53702B9528430017617B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		A0DD36192B93895F00D504D6 /* CCAircraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCAircraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DD361C2B93895F00D504D6 /* CCAircraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAircraftApp.swift; sourceTree = "<group>"; };
-		A0DD361E2B93895F00D504D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0DD361E2B93895F00D504D6 /* OpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenView.swift; sourceTree = "<group>"; };
 		A0DD36202B93897000D504D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0DD36232B93897000D504D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0DD36292B93897100D504D6 /* CCAircraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCAircraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +57,17 @@
 		A0DD36332B93897100D504D6 /* CCAircraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCAircraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DD36372B93897100D504D6 /* CCAircraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAircraftUITests.swift; sourceTree = "<group>"; };
 		A0DD36392B93897100D504D6 /* CCAircraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAircraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0DD36472B93ABED00D504D6 /* Execution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Execution.swift; sourceTree = "<group>"; };
+		A0DD364C2B94156400D504D6 /* CruiseMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseMain.swift; sourceTree = "<group>"; };
+		A0DD364E2B94157300D504D6 /* EngagementMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementMain.swift; sourceTree = "<group>"; };
+		A0DD36502B94157D00D504D6 /* EgressMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgressMain.swift; sourceTree = "<group>"; };
+		A0DD36522B94159B00D504D6 /* Loose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loose.swift; sourceTree = "<group>"; };
+		A0DD36542B9415A900D504D6 /* Trail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trail.swift; sourceTree = "<group>"; };
+		A0DD36562B9415BD00D504D6 /* Echelon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Echelon.swift; sourceTree = "<group>"; };
+		A0DD36582B94161F00D504D6 /* Banzai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banzai.swift; sourceTree = "<group>"; };
+		A0DD365A2B94162B00D504D6 /* Blow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blow.swift; sourceTree = "<group>"; };
+		A0DD365C2B94163400D504D6 /* Skate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate.swift; sourceTree = "<group>"; };
+		A0DD365E2B94163D00D504D6 /* Lag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +119,12 @@
 			isa = PBXGroup;
 			children = (
 				A0DD361C2B93895F00D504D6 /* CCAircraftApp.swift */,
-				A0DD361E2B93895F00D504D6 /* ContentView.swift */,
+				A0DD361E2B93895F00D504D6 /* OpenView.swift */,
+				A04E53702B9528430017617B /* SplashView.swift */,
+				A0DD36462B93A90700D504D6 /* Selections */,
+				A0DD36492B9414CD00D504D6 /* Cruise */,
+				A0DD364A2B9414EB00D504D6 /* Engagement */,
+				A0DD364B2B9414FD00D504D6 /* Egress */,
 				A0DD36202B93897000D504D6 /* Assets.xcassets */,
 				A0DD36222B93897000D504D6 /* Preview Content */,
 			);
@@ -125,6 +154,45 @@
 				A0DD36392B93897100D504D6 /* CCAircraftUITestsLaunchTests.swift */,
 			);
 			path = CCAircraftUITests;
+			sourceTree = "<group>";
+		};
+		A0DD36462B93A90700D504D6 /* Selections */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD36472B93ABED00D504D6 /* Execution.swift */,
+			);
+			path = Selections;
+			sourceTree = "<group>";
+		};
+		A0DD36492B9414CD00D504D6 /* Cruise */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD364C2B94156400D504D6 /* CruiseMain.swift */,
+				A0DD36522B94159B00D504D6 /* Loose.swift */,
+				A0DD36542B9415A900D504D6 /* Trail.swift */,
+				A0DD36562B9415BD00D504D6 /* Echelon.swift */,
+			);
+			path = Cruise;
+			sourceTree = "<group>";
+		};
+		A0DD364A2B9414EB00D504D6 /* Engagement */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD364E2B94157300D504D6 /* EngagementMain.swift */,
+				A0DD36582B94161F00D504D6 /* Banzai.swift */,
+				A0DD365A2B94162B00D504D6 /* Blow.swift */,
+				A0DD365C2B94163400D504D6 /* Skate.swift */,
+				A0DD365E2B94163D00D504D6 /* Lag.swift */,
+			);
+			path = Engagement;
+			sourceTree = "<group>";
+		};
+		A0DD364B2B9414FD00D504D6 /* Egress */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD36502B94157D00D504D6 /* EgressMain.swift */,
+			);
+			path = Egress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +325,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0DD361F2B93895F00D504D6 /* ContentView.swift in Sources */,
+				A0DD36482B93ABED00D504D6 /* Execution.swift in Sources */,
+				A0DD36532B94159B00D504D6 /* Loose.swift in Sources */,
+				A0DD365D2B94163400D504D6 /* Skate.swift in Sources */,
+				A0DD36552B9415A900D504D6 /* Trail.swift in Sources */,
+				A0DD365B2B94162B00D504D6 /* Blow.swift in Sources */,
+				A0DD361F2B93895F00D504D6 /* OpenView.swift in Sources */,
 				A0DD361D2B93895F00D504D6 /* CCAircraftApp.swift in Sources */,
+				A0DD36572B9415BD00D504D6 /* Echelon.swift in Sources */,
+				A0DD365F2B94163D00D504D6 /* Lag.swift in Sources */,
+				A0DD36592B94161F00D504D6 /* Banzai.swift in Sources */,
+				A0DD36512B94157D00D504D6 /* EgressMain.swift in Sources */,
+				A0DD364F2B94157300D504D6 /* EngagementMain.swift in Sources */,
+				A0DD364D2B94156400D504D6 /* CruiseMain.swift in Sources */,
+				A04E53712B9528430017617B /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
