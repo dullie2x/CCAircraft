@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A04E53712B9528430017617B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E53702B9528430017617B /* SplashView.swift */; };
+		A090E5D22BAA8F8F0017D06A /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A090E5D12BAA8F8F0017D06A /* Navigation.swift */; };
 		A0DD361D2B93895F00D504D6 /* CCAircraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD361C2B93895F00D504D6 /* CCAircraftApp.swift */; };
 		A0DD361F2B93895F00D504D6 /* OpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD361E2B93895F00D504D6 /* OpenView.swift */; };
 		A0DD36212B93897000D504D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DD36202B93897000D504D6 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		A04E53702B9528430017617B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		A090E5D12BAA8F8F0017D06A /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		A0DD36192B93895F00D504D6 /* CCAircraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCAircraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DD361C2B93895F00D504D6 /* CCAircraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAircraftApp.swift; sourceTree = "<group>"; };
 		A0DD361E2B93895F00D504D6 /* OpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				A0DD361C2B93895F00D504D6 /* CCAircraftApp.swift */,
 				A0DD361E2B93895F00D504D6 /* OpenView.swift */,
+				A090E5D12BAA8F8F0017D06A /* Navigation.swift */,
 				A04E53702B9528430017617B /* SplashView.swift */,
 				A0DD36462B93A90700D504D6 /* Selections */,
 				A0DD36492B9414CD00D504D6 /* Cruise */,
@@ -337,6 +340,7 @@
 				A0DD36592B94161F00D504D6 /* Banzai.swift in Sources */,
 				A0DD36512B94157D00D504D6 /* EgressMain.swift in Sources */,
 				A0DD364F2B94157300D504D6 /* EngagementMain.swift in Sources */,
+				A090E5D22BAA8F8F0017D06A /* Navigation.swift in Sources */,
 				A0DD364D2B94156400D504D6 /* CruiseMain.swift in Sources */,
 				A04E53712B9528430017617B /* SplashView.swift in Sources */,
 			);

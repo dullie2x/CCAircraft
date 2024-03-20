@@ -12,6 +12,8 @@ struct Blow: View {
     let columns: Int = 3
     
     @State private var isSelected: [[Bool]] = Array(repeating: Array(repeating: false, count: 3), count: 4)
+    @EnvironmentObject var navigationController: NavigationController
+
     
     var body: some View {
         GeometryReader { geometry in
@@ -57,19 +59,30 @@ struct Blow: View {
                 Spacer()
             }
             
-            // Execute button at the bottom right
-            Button(action: {
-                // Execute action
-            }) {
-                Image("Execute")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150)
+                // Execute button at the bottom right
+                Button(action: {
+                    // Resetting the selections
+                    for row in 0..<rows {
+                        for column in 0..<columns {
+                            isSelected[row][column] = false
+                        }
+                    }
+                    
+                    // Use the navigationController to reset the app to the initial state
+                    withAnimation {
+                        navigationController.showSplash = true
+                    }
+                }) {
+                    Image("Execute")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                }
+                .position(x: geometry.size.width - geometry.safeAreaInsets.trailing - 90, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
+
             }
-            .position(x: geometry.size.width - geometry.safeAreaInsets.trailing - 90, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
         }
     }
-}
     
     func imageFor(row: Int, column: Int) -> Image {
         if row == 0 && column < 3 {

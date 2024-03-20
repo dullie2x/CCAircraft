@@ -9,23 +9,25 @@ import SwiftUI
 
 @main
 struct CCAircraftApp: App {
-    @State private var showSplash = true // Add a boolean state variable
+    @StateObject private var navigationController = NavigationController() // Use StateObject for lifecycle management
+
     var body: some Scene {
         WindowGroup {
-            // Use a conditional to show either the splash screen or the main app content
-            if showSplash {
+            // Use the navigationController to control the view logic
+            if navigationController.showSplash {
                 SplashPage()
                     .onAppear {
-                        // Automatically dismiss the splash screen after 2 seconds
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {
-                                showSplash = false
+                                navigationController.showSplash = false
                             }
                         }
                     }
             } else {
                 OpenView()
+                    .environmentObject(navigationController) // Pass the navigationController down
             }
         }
     }
 }
+

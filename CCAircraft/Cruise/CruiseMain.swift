@@ -15,6 +15,7 @@ struct CruiseMain: View {
     @State private var selectedColumn: Int?
     @State private var isShowingErrorAlert = false
     @State private var navigateToEditView = false // Added state variable
+    @EnvironmentObject var navigationController: NavigationController
 
     var body: some View {
         NavigationView {
@@ -98,10 +99,24 @@ struct CruiseMain: View {
                 .frame(width: 150, height: 50)
         }
     }
+    
     var executeButton: some View {
         GeometryReader { geometry in
             Button(action: {
-                // Execute action
+                // Resetting the selections
+                resetSelections()
+                
+                // Resetting other state variables to their initial values
+                selectedRow = nil
+                selectedColumn = nil
+                isShowingErrorAlert = false
+                navigateToEditView = false
+                
+                // Resetting to initial view using NavigationController
+                // Assuming you want to show the splash screen again and then automatically transition to OpenView
+                withAnimation {
+                    navigationController.showSplash = true
+                }
             }) {
                 Image("Execute")
                     .resizable()
@@ -111,6 +126,8 @@ struct CruiseMain: View {
             .position(x: geometry.size.width - geometry.safeAreaInsets.trailing - 100, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
         }
     }
+
+
     func resetSelections() {
         for row in 0..<rows {
             for column in 0..<columns {

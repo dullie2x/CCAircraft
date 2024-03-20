@@ -10,90 +10,159 @@ import SwiftUI
 struct EgressMain: View {
     let rows = 4
     let columns = 3
-    
     @State private var isSelected: [[Bool]] = Array(repeating: Array(repeating: false, count: 3), count: 4)
-    
+    @State private var selectedRow: Int?
+    @State private var selectedColumn: Int?
+    @State private var isShowingErrorAlert = false
+    @State private var navigateToEditView = false // Added state variable
+    @EnvironmentObject var navigationController: NavigationController
+
+
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Color.black.edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Text("EGRESS")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.green)
-                    .padding(.top, 20)
-                
-                // Grid of buttons
-                VStack(spacing: 5) {
-                    ForEach(0..<rows, id: \.self) { row in
-                        HStack(spacing: 0) {
-                            ForEach(0..<columns, id: \.self) { column in
-                                Button(action: {
-                                    // Reset all selections
-                                    for r in 0..<rows {
-                                        for c in 0..<columns {
-                                            isSelected[r][c] = false
-                                        }
-                                    }
-                                    // Set only this button as selected
-                                    isSelected[row][column] = true
-                                }) {
-                                    imageFor(row: row, column: column)
-                                        .resizable()
-                                        .aspectRatio(1, contentMode: .fit)
-                                        .frame(width: 120, height: 120)
-                                        .background(isSelected[row][column] ? Color.red.opacity(0.9) : Color.clear)
-                                        .cornerRadius(10)
-                                        .overlay(RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(isSelected[row][column] ? Color.red : Color.clear, lineWidth: 10))
-                                }
-                            }
+        NavigationView {
+            GeometryReader { geometry in
+                ZStack {
+                    Color.black.edgesIgnoringSafeArea(.all)
+
+                    VStack {
+                        Text("EGRESS")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(.green)
+                            .padding(.top, 20)
+                        
+                        gridOfButtons
+                        
+                        Spacer()
+                    }
+                    
+                    VStack {
+                        Spacer()
+                        HStack {
+                            editButton
+                                .position(x: geometry.safeAreaInsets.leading + 80, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
+                            
+                            Spacer()
+                            
+                            executeButton
+                                
                         }
                     }
                 }
-                .padding()
-                
-                Spacer()
-            }
-            
-            // Edit button at the bottom left
-                Button(action: {
-                    // Edit action
-                }) {
-                    Image("Edit")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 150, height: 60)
-                }
-                .position(x: geometry.safeAreaInsets.leading + 60, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
-                
-                // Execute button at the bottom right
-                Button(action: {
-                    // Execute action
-                }) {
-                    Image("Execute")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 150, height: 150)
-                }
-                .position(x: geometry.size.width - geometry.safeAreaInsets.trailing - 90, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
+                .navigationTitle("Egress Selection")
+                .navigationBarHidden(true)
             }
         }
+        .alert(isPresented: $isShowingErrorAlert) {
+            Alert(title: Text("Error"), message: Text("No specific selection made."), dismissButton: .default(Text("OK")))
+        }
+        .sheet(isPresented: $navigateToEditView, content: {
+            destinationView()
+        })
     }
 
-func imageFor(row: Int, column: Int) -> Image {
-    // Image selection logic
-    if row == 0 {
-        switch column {
-        case 0: return Image("Cruise-Echelon")
-        case 1: return Image("Cruise-Loose")
-        case 2: return Image("Cruise-Trail")
-        default: return Image("Blue-Sq")
+    var gridOfButtons: some View {
+        VStack(spacing: 5) {
+            ForEach(0..<rows, id: \.self) { row in
+                HStack(spacing: 0) {
+                    ForEach(0..<columns, id: \.self) { column in
+                        Button(action: {
+                            resetSelections()
+                            isSelected[row][column] = true
+                            selectedRow = row
+                            selectedColumn = column
+                        }) {
+                            imageFor(row: row, column: column)
+                                .resizable()
+                                .aspectRatio(1, contentMode: .fit)
+                                .frame(width: 120, height: 120)
+                                .background(isSelected[row][column] ? Color.red.opacity(0.9) : Color.clear)
+                                .cornerRadius(10)
+                                .overlay(RoundedRectangle(cornerRadius: 10)
+                                            .stroke(isSelected[row][column] ? Color.red : Color.clear, lineWidth: 10))
+                        }
+                    }
+                }
+            }
+        }
+        .padding()
+    }
+    var editButton: some View {
+        Button(action: {
+            if selectedRow == nil || selectedColumn == nil {
+                isShowingErrorAlert = true
+            } else {
+                navigateToEditView = true // Set navigateToEditView to true to show the edit view
+            }
+        }) {
+            Image("Edit")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150, height: 50)
         }
     }
-    return Image("Blue-Sq")
-}
+    var executeButton: some View {
+        GeometryReader { geometry in
+            Button(action: {
+                // Resetting the selections
+                resetSelections()
+                
+                // Resetting other state variables to their initial values
+                selectedRow = nil
+                selectedColumn = nil
+                isShowingErrorAlert = false
+                navigateToEditView = false
+                
+                // Resetting to initial view using NavigationController
+                // Assuming you want to show the splash screen again and then automatically transition to OpenView
+                withAnimation {
+                    navigationController.showSplash = true
+                }
+            }) {
+                Image("Execute")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 50)
+            }
+            .position(x: geometry.size.width - geometry.safeAreaInsets.trailing - 100, y: geometry.size.height - geometry.safeAreaInsets.bottom - 25)
+        }
+    }
+    func resetSelections() {
+        for row in 0..<rows {
+            for column in 0..<columns {
+                isSelected[row][column] = false
+            }
+        }
+    }
+    func imageFor(row: Int, column: Int) -> Image {
+        if row == 0 {
+            switch column {
+            case 0: return Image("Cruise-Echelon")
+            case 1: return Image("Cruise-Loose")
+            case 2: return Image("Cruise-Trail")
+            default: return Image("Blue-Sq")
+            }
+        }
+        return Image("Blue-Sq")
+    }
+    
+    @ViewBuilder
+    func destinationView() -> some View {
+        if let row = selectedRow, let column = selectedColumn, row == 0 {
+            switch column {
+            case 0: Echelon()
+            case 1: Loose()
+            case 2: Trail()
+            default: Text("Selection not valid")
+            }
+        } else {
+            ZStack {
+                Color.black.edgesIgnoringSafeArea(.all)
+                Text("Nothing to edit, go back")
+                    .font(.title)
+                    .foregroundColor(.red)
+            }
+        }
+    }
 }
 
 #Preview {
